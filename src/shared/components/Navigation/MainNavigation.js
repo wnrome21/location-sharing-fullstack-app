@@ -1,29 +1,42 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
-import MainHeader from "./MainHeader";
-import NavLinks from "./NavLinks";
-import SideDrawer from "./SideDrawer";
+import MainHeader from './MainHeader';
+import NavLinks from './NavLinks';
+import SideDrawer from './SideDrawer';
+import Backdrop from '../UIElements/Backdrop';
+import './MainNavigation.css';
 
-import "./MainNavigation.css";
+const MainNavigation = props => {
+  const [drawerIsOpen, setDrawerIsOpen] = useState(false);
 
-const MainNavigation = (props) => {
+  const openDrawerHandler = () => {
+    setDrawerIsOpen(true);
+  };
+
+  const closeDrawerHandler = () => {
+    setDrawerIsOpen(false);
+  };
+
   return (
     <React.Fragment>
-      <SideDrawer>
-        <nav className="main-navigation__drawer">
+      {drawerIsOpen && <Backdrop onClick={closeDrawerHandler} />}
+      {drawerIsOpen ? (
+      <SideDrawer show={drawerIsOpen} onClick={closeDrawerHandler}>
+        <nav className="main-navigation__drawer-nav">
           <NavLinks />
         </nav>
-      </SideDrawer>
+      </SideDrawer> 
+      ) : null}
       <MainHeader>
-        <button className="main-navigation__menu-btn">
+        <button className="main-navigation__menu-btn" onClick={openDrawerHandler}>
           <span />
           <span />
           <span />
         </button>
-        <Link to="/">
-          <h1 className="main-navigation__title">Location Sharer</h1>
-        </Link>
+        <h1 className="main-navigation__title">
+          <Link to="/">YourPlaces</Link>
+        </h1>
         <nav className="main-navigation__header-nav">
           <NavLinks />
         </nav>
