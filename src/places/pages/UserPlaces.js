@@ -11,7 +11,7 @@ const DUMMY_PLACES = [
         description: 'One of the most famous sky scrapers in the world!',
         imageURL: 'https://media.timeout.com/images/101705309/750/422/image.jpg',
         address: '20 W 34th St., New York, NY 10001',
-        locations: {
+        location: {
             lat: 40.7484405,
             lng: -73.9878584
         },
@@ -23,7 +23,7 @@ const DUMMY_PLACES = [
         description: 'One of the most famous sky scrapers in the world!',
         imageURL: 'https://media.timeout.com/images/101705309/750/422/image.jpg',
         address: '20 W 34th St., New York, NY 10001',
-        locations: {
+        location: {
             lat: 40.7484405,
             lng: -73.9878584
         },
